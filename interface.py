@@ -1,5 +1,6 @@
 import os
 os.system("cls")
+import time
 from colorama import Back, Fore, init, Style
 
 clientes = [" Ana Souza", "Carlos Silva", "Marcos Oliveira", "Thiago André", "Paulo Henrique", "Juliana Silva ", ]
@@ -13,16 +14,19 @@ print("O AutoFlow qualifica leads, organiza a jornada de vendas e garante")
 print("que sua equipe foque no que importa: converter e fechar contratos." + Style.RESET_ALL)
 print("=" *67)
 print()
-print(Fore.GREEN + Style.BRIGHT + "• Clientes Certo na hora certa ✨.") 
+print(Fore.GREEN + Style.BRIGHT + "• Clientes Certo na hora certa ✨.")
 print("• Clientes Aguardando Notificação ✅." + Style.RESET_ALL)
 print()
-opcao = input(">>> Deseja enviar notificação via WhatsApp para o primeiro cliente? (S/N): ").strip().upper()
+opcao = input( ">>> Deseja enviar notificação via WhatsApp para o primeiro cliente? "+ Fore.GREEN + "( S" + Style.RESET_ALL + " / " + Fore.RED + "N )" + Style.RESET_ALL + " : "
+).strip().upper()
 
 match opcao:
     case "S":
         cliente_avisado = clientes.pop(0)
         print(Fore.BLUE + f"\n[+] Enviando WhatsApp para {cliente_avisado}..." + Style.RESET_ALL)
+        time.sleep(10)
         print(Fore.GREEN + Style.BRIGHT + "SUCESSO! Notificação enviada e registrada no histórico ✅!" + Style.RESET_ALL)
+        time.sleep(5)
         print(Fore.BLUE + f"Fila atualizada de clientes aguardando: {clientes}" + Style.RESET_ALL)
     case "N":
         print(Fore.YELLOW + "\nAtendimento suspenso. O cliente permanece na fila de espera." + Style.RESET_ALL)
